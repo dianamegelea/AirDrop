@@ -1,0 +1,224 @@
+{
+    "buildInfo": {
+        "rustc": {
+            "version": "1.68.0-nightly",
+            "commitHash": "0b90256ada21c6a81b4c18f2c7a23151ab5fc232",
+            "commitDate": "2023-01-13",
+            "channel": "Nightly",
+            "short": "rustc 1.68.0-nightly (0b90256ad 2023-01-13)"
+        },
+        "contractCrate": {
+            "name": "neversea",
+            "version": "0.0.0"
+        },
+        "framework": {
+            "name": "elrond-wasm",
+            "version": "0.36.0"
+        }
+    },
+    "name": "Neversea",
+    "constructor": {
+        "inputs": [],
+        "outputs": []
+    },
+    "endpoints": [
+        {
+            "name": "send_funds_to_friend",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "EGLD"
+            ],
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "claim",
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "sell_nft",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "*"
+            ],
+            "inputs": [
+                {
+                    "name": "starting_price",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "time_to_wait",
+                    "type": "u64"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "buy_nft",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "*"
+            ],
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "max_bid",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "nft_token_identifier",
+                    "type": "TokenIdentifier"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "BigUint"
+                }
+            ]
+        },
+        {
+            "name": "best_bidder",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "nft_token_identifier",
+                    "type": "TokenIdentifier"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "Address"
+                }
+            ]
+        },
+        {
+            "name": "deposit_nft",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "NFTInfo"
+                }
+            ]
+        },
+        {
+            "name": "deposit",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "sender",
+                    "type": "Address"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "DepositInfo"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "identifier": "details",
+            "inputs": [
+                {
+                    "name": "bid",
+                    "type": "BigUint",
+                    "indexed": true
+                },
+                {
+                    "name": "owner",
+                    "type": "Address",
+                    "indexed": true
+                },
+                {
+                    "name": "token",
+                    "type": "TokenIdentifier",
+                    "indexed": true
+                },
+                {
+                    "name": "floor_price",
+                    "type": "BigUint",
+                    "indexed": true
+                },
+                {
+                    "name": "deadline",
+                    "type": "u64",
+                    "indexed": true
+                }
+            ]
+        },
+        {
+            "identifier": "claimedMoneyFrom",
+            "inputs": [
+                {
+                    "name": "sender",
+                    "type": "Address",
+                    "indexed": true
+                }
+            ]
+        }
+    ],
+    "hasCallback": false,
+    "types": {
+        "DepositInfo": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "depositor_address",
+                    "type": "Address"
+                }
+            ]
+        },
+        "EsdtTokenPayment": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "token_identifier",
+                    "type": "TokenIdentifier"
+                },
+                {
+                    "name": "token_nonce",
+                    "type": "u64"
+                },
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                }
+            ]
+        },
+        "NFTInfo": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "seller_address",
+                    "type": "Address"
+                },
+                {
+                    "name": "floor_price",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "deadline",
+                    "type": "u64"
+                },
+                {
+                    "name": "nft",
+                    "type": "EsdtTokenPayment"
+                }
+            ]
+        }
+    }
+}
