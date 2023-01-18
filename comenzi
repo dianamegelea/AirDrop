@@ -1,4 +1,4 @@
-﻿// CE A FUNCTIONAT !!!!!
+﻿// EXAMPLE
 
 // 1. CREARE NFT
 
@@ -7,7 +7,7 @@ erdpy contract call erd1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w
 erdpy contract call erd1kfnd5yq47njy90mauzk6ql80hj30pp0puaj2udhnsykgt68l83zquj8m8j --keyfile="/home/diana/Downloads/old/erd1kfnd5yq47njy90mauzk6ql80hj30pp0puaj2udhnsykgt68l83zquj8m8j.json" --gas-limit=3000000 --proxy="https://devnet-gateway.elrond.com" --recall-nonce --chain D --function="ESDTNFTCreate" --arguments 0x464f422d613465663235 0x01 0x464f4274657374 0x1d4c 0x00 0x6d657461646174613a697066734349442f746573742e6a736f6e3b746167733a70726f696563742c74657374 0x68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f7468756d622f302f30382f436861726c65732d4c65636c6572632e6a70672f38303070782d436861726c65732d4c65636c6572632e6a7067 --send
 
 
-// 2. PARTEA DE SC PENTRU NFT
+// SELL BUY (NFT)
 // SELL: https://devnet-explorer.multiversx.com/transactions/abd70f342c013881882d2468575c2c8327d0f6712b1408d5e53441eba2c6847c
 // BUY: https://devnet-explorer.multiversx.com/transactions/41d3fdeea4e54b78104ec06fe230c2c54b34d3b12bfae6260909f6b712144e4e
 
@@ -17,7 +17,18 @@ erdpy contract call erd1kfnd5yq47njy90mauzk6ql80hj30pp0puaj2udhnsykgt68l83zquj8m
 erdpy contract call erd1qqqqqqqqqqqqqpgqdye5ksannpfzml29py27x3cf4ef4u9xk83zqjsae8m --keyfile="/home/diana/Downloads/erd1rezvt5npl78ermv843rsem8uyr60k28866prxm0kk3y0v6v9t2usd0x0m3.json" --gas-limit=30000000 --proxy="https://devnet-gateway.multiversx.com" --chain D --function=buy_nft --recall-nonce --value 5000000000000000000 --send
 
 
-// 3. SEND CLAIM EGLD
+// SEND CLAIM (EGLD)
 
 erdpy contract call erd1qqqqqqqqqqqqqpgqdye5ksannpfzml29py27x3cf4ef4u9xk83zqjsae8m --keyfile="/home/diana/Downloads/old/erd1kfnd5yq47njy90mauzk6ql80hj30pp0puaj2udhnsykgt68l83zquj8m8j.json" --gas-limit=200000000 --proxy="https://devnet-gateway.multiversx.com" --chain D --function=send_funds_to_friend --recall-nonce --send --arguments erd1rezvt5npl78ermv843rsem8uyr60k28866prxm0kk3y0v6v9t2usd0x0m3 --value 2000000000000000000
 erdpy contract call erd1qqqqqqqqqqqqqpgqdye5ksannpfzml29py27x3cf4ef4u9xk83zqjsae8m --keyfile="/home/diana/Downloads/erd1rezvt5npl78ermv843rsem8uyr60k28866prxm0kk3y0v6v9t2usd0x0m3.json" --gas-limit=200000000 --proxy="https://devnet-gateway.multiversx.com" --chain D --function=claim --recall-nonce --send 
+
+
+// SELL BID SEND_TO_WINNER (NFT)
+// SELL: https://devnet-explorer.multiversx.com/transactions/9ba02050b04fe70e4397a94474d774fd8a53e28def51c60a64aa8b270e19aafb
+// BID1: https://devnet-explorer.multiversx.com/transactions/96b16aab8a7773b54abc8fb468a41eb14d478c2e82ce9d171d9e59c3a7d395ce
+// BID2: https://devnet-explorer.multiversx.com/transactions/47dfb0faf3d805dc546f8616a12d2acf71d734c921b267e2ae0a21a2ae783dfe
+// SEND_TO_WINNER: https://devnet-explorer.multiversx.com/transactions/fabeacbafe4b27b255326de76f74a389d08973855d6db0266383360c38bcb244 
+
+erdpy contract call erd1qqqqqqqqqqqqqpgqnp2jfas9cqj878mgt8pk0fnkvcznd6e383zq66lfye --keyfile="/home/diana/Downloads/erd1rezvt5npl78ermv843rsem8uyr60k28866prxm0kk3y0v6v9t2usd0x0m3.json" --gas-limit=30000000 --proxy="https://devnet-gateway.multiversx.com" --chain D --function=bid_nft --recall-nonce --value 5000000000000000000 --send
+erdpy contract call erd1qqqqqqqqqqqqqpgqnp2jfas9cqj878mgt8pk0fnkvcznd6e383zq66lfye --keyfile="/home/diana/Downloads/erd1rezvt5npl78ermv843rsem8uyr60k28866prxm0kk3y0v6v9t2usd0x0m3.json" --gas-limit=30000000 --proxy="https://devnet-gateway.multiversx.com" --chain D --function=bid_nft --recall-nonce --value 9000000000000000000 --send
+erdpy contract call erd1qqqqqqqqqqqqqpgqnp2jfas9cqj878mgt8pk0fnkvcznd6e383zq66lfye --keyfile="/home/diana/Downloads/old/erd1kfnd5yq47njy90mauzk6ql80hj30pp0puaj2udhnsykgt68l83zquj8m8j.json" --gas-limit=200000000 --proxy="https://devnet-gateway.multiversx.com" --chain D --function=send_to_winner --recall-nonce --send 
